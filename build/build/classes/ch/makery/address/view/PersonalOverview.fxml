@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.PersonalOverviewController">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="237.0" prefWidth="397.0">
+         <children>
+            <SplitPane layoutX="11.0" layoutY="3.0" orientation="VERTICAL" prefHeight="237" prefWidth="380.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="378.0">
+                     <children>
+                        <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 1" />
+                        <ComboBox fx:id="player1" editable="true" layoutX="78.0" layoutY="19.0" prefWidth="125.0" />
+                        <ComboBox fx:id="player2" editable="true" layoutX="78.0" layoutY="51.0" prefWidth="125.0" />
+                        <ComboBox fx:id="player3" editable="true" layoutX="78.0" layoutY="86.0" prefWidth="125.0" />
+                        <ComboBox fx:id="player4" editable="true" layoutX="78.0" layoutY="122.0" prefWidth="125.0" />
+                        <ComboBox fx:id="player5" editable="true" layoutX="78.0" layoutY="157.0" prefWidth="125.0" />
+                        <ComboBox fx:id="player6" editable="true" layoutX="78.0" layoutY="192.0" prefWidth="125.0" />
+                        <ComboBox fx:id="hero1" layoutX="214.0" layoutY="19.0" onDragOver="#test" prefWidth="150.0" />
+                        <ComboBox fx:id="hero2" layoutX="214.0" layoutY="51.0" prefWidth="150.0" />
+                        <ComboBox fx:id="hero3" layoutX="214.0" layoutY="86.0" prefWidth="150.0" />
+                        <ComboBox fx:id="hero4" layoutX="214.0" layoutY="122.0" prefWidth="150.0" />
+                        <ComboBox fx:id="hero5" layoutX="214.0" layoutY="157.0" prefWidth="150.0" />
+                        <ComboBox fx:id="hero6" layoutX="214.0" layoutY="192.0" prefWidth="150.0" />
+                        <Text layoutX="14.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 2" />
+                        <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 3" />
+                        <Text layoutX="14.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 4" />
+                        <Text layoutX="14.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 5" />
+                        <Text layoutX="14.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player 6" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

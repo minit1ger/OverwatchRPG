@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.MapOverviewController">
+   <children>
+      <ComboBox fx:id="map_name" layoutX="103.0" layoutY="23.0" prefWidth="150.0" />
+      <Text layoutX="24.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Environment" />
+      <CheckBox fx:id="attack" layoutX="279.0" layoutY="27.0" mnemonicParsing="false" text="Attack" />
+      <Label fx:id="point1" layoutX="24.0" layoutY="62.0" text="Point 1" />
+      <Label fx:id="time1" layoutX="103.0" layoutY="62.0" text="00:00" />
+      <Label fx:id="point2" layoutX="24.0" layoutY="85.0" text="Point 2" />
+      <Label fx:id="time2" layoutX="103.0" layoutY="83.0" text="00:00" />
+      <Label fx:id="point3" layoutX="24.0" layoutY="108.0" text="Point 3" />
+      <Label fx:id="point4" layoutX="24.0" layoutY="130.0" text="Point 4" />
+      <Label fx:id="point5" layoutX="24.0" layoutY="150.0" text="Point 5" />
+      <Label fx:id="time3" layoutX="103.0" layoutY="108.0" text="00:00" />
+      <Label fx:id="time4" layoutX="103.0" layoutY="130.0" text="00:00" />
+      <Label fx:id="time5" layoutX="103.0" layoutY="150.0" text="00:00" />
+      <Button fx:id="triggerTimer" layoutX="279.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#updateTimer" text="Start" />
+      <Button layoutX="320.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#submitForm" text="Submit" />
+      <Button layoutX="271.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#clearForm" text="Clear" />
+   </children>
+</AnchorPane>
