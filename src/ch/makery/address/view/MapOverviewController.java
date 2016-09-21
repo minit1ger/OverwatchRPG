@@ -19,6 +19,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
+/**
+ * MapOverviewController is a javaFX container that contains the following: 
+ *  	1.) The Overwatch MAP that was played. 
+ *  	2.) Times to complete each point and thus the map. 
+ *  	3.) If the round was attack or defend. 
+ * @author Spazkat
+ *
+ */
 public class MapOverviewController {
 
 	@FXML
@@ -50,11 +58,14 @@ public class MapOverviewController {
 	Label time5 = new Label();
 	
 	@FXML
+	//indicates if the records are attack or defense. 
 	CheckBox attack = new CheckBox();
 	
 	@FXML
+	//Timer to track time.
 	Button triggerTimer = new Button(); 
 	
+	//Containers to iterate through GUI items. 
 	ArrayList<Label> timer_list = new ArrayList<Label>();
 	ArrayList<Label> point_list = new ArrayList<Label>(); 
 	ArrayList<Timeline> timeline_list = new ArrayList<Timeline>();
@@ -63,9 +74,7 @@ public class MapOverviewController {
 	private int pointCount = 0; 
 	
 	private MainApp mainApp; 
-	
-	private CSVResultOutput output = new CSVResultOutput(); 
-	
+
 	long start_time = 0; 
 	long duration = 0;
 	
@@ -74,40 +83,9 @@ public class MapOverviewController {
 	 */
 	public MapOverviewController()
 	{
-		output.openFile();
 	}
 	
-	public void initializePointLabels()
-	{
-		point_list.add(point1);
-		point_list.add(point2);
-		point_list.add(point3);
-		point_list.add(point4);
-		point_list.add(point5);
-		
-		for ( Label point : point_list )
-		{
-			point.setVisible(false);
-		}
-		point1.setVisible(true);
-	}
-	
-	public void initalizeTimerLabels()
-	{
-		timer_list.add(time1);
-		timer_list.add(time2);
-		timer_list.add(time3);
-		timer_list.add(time4);
-		timer_list.add(time5);
-		for ( Label timer : timer_list )
-		{
-			timer.setVisible(false);
-			timer.setText("00:00");
-			timeline_list.add(new Timeline());
-		}
-		time1.setVisible(true);
-	}
-	
+
 	@FXML
 	/**
 	 * The initialization of the Environment panel.
@@ -128,6 +106,7 @@ public class MapOverviewController {
 	    initalizeTimerLabels();
 
 	}
+	
 	
     @FXML
 	private void updateTimer()
@@ -193,8 +172,7 @@ public class MapOverviewController {
 		  pointCount++;
 	}
 	
-    @FXML
-    private void clearForm()
+    public void clearForm()
     {
     	System.out.println("clear");
 		for ( Timeline t : timeline_list )
@@ -209,16 +187,51 @@ public class MapOverviewController {
     	initialize();
     }
     
-    public void closeForm()
-    {
-    	output.closeFile();
-    }
+    /**
+     * initializes the point labels. The labels will start as invisible with the
+     * exception of the first one. 
+     */
+	public void initializePointLabels()
+	{
+		point_list.add(point1);
+		point_list.add(point2);
+		point_list.add(point3);
+		point_list.add(point4);
+		point_list.add(point5);
+		
+		for ( Label point : point_list )
+		{
+			point.setVisible(false);
+		}
+		point1.setVisible(true);
+	}
+	
+	/**
+	 * initializes the timer labels. The labels will start as invisible with the 
+	 * exception of the first one. 
+	 */
+	public void initalizeTimerLabels()
+	{
+		timer_list.add(time1);
+		timer_list.add(time2);
+		timer_list.add(time3);
+		timer_list.add(time4);
+		timer_list.add(time5);
+		for ( Label timer : timer_list )
+		{
+			timer.setVisible(false);
+			timer.setText("00:00");
+			timeline_list.add(new Timeline());
+		}
+		time1.setVisible(true);
+	}
+	
     
     /**
      * 
      * @return
      */
-    private OMap getMap( )
+    public OMap getMap( )
     {
     	if ( map_name.getValue() == null )
     	{
@@ -226,13 +239,10 @@ public class MapOverviewController {
     	}
     	return map_name.getValue();
     }
-    @FXML
-    private void submitForm()
+
+    public ArrayList<Label> getTimerList()
     {
-    	System.out.println("submitted");
-    	output.outputResults(mainApp.getPlayers(),
-    			mainApp.getHeros(), getMap(), 
-    			timer_list);
+    	return timer_list;
     }
     
 	public void setMainApp(MainApp mainApp)

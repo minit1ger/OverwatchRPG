@@ -23,7 +23,5 @@
       <Label fx:id="time4" layoutX="103.0" layoutY="130.0" text="00:00" />
       <Label fx:id="time5" layoutX="103.0" layoutY="150.0" text="00:00" />
       <Button fx:id="triggerTimer" layoutX="279.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#updateTimer" text="Start" />
-      <Button layoutX="320.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#submitForm" text="Submit" />
-      <Button layoutX="271.0" layoutY="155.0" mnemonicParsing="false" onMouseClicked="#clearForm" text="Clear" />
    </children>
 </AnchorPane>

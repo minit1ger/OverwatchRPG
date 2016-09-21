@@ -1,5 +1,6 @@
 package ch.makery.address.model;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javafx.scene.control.Label;
@@ -14,7 +15,7 @@ public interface ResultOutput {
 	/**
 	 * Opens the file.
 	 */
-	public abstract void openFile();
+//	public abstract void openFile();
 	
 	/**
 	 * Closes the file. 
@@ -32,4 +33,6 @@ public interface ResultOutput {
 			                            ArrayList<Hero> heros, 
 			                            OMap map, 
 			                            ArrayList<Label> times );
+
+	void openFile(String file_location);
 }

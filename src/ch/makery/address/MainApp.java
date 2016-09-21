@@ -7,14 +7,17 @@ import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ch.makery.address.model.Hero;
+import ch.makery.address.model.OMap;
 import ch.makery.address.model.Player;
 import ch.makery.address.view.MapOverviewController;
 import ch.makery.address.view.PersonalOverviewController;
+import ch.makery.address.view.SubmitDataController;
 
 public class MainApp extends Application {
 
@@ -23,6 +26,7 @@ public class MainApp extends Application {
 	
 	private PersonalOverviewController pcontroller;
 	private MapOverviewController mcontroller; 
+	private SubmitDataController scontroller; 
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -33,6 +37,7 @@ public class MainApp extends Application {
 		
 		showEnvironmentOverview();
 		showPersonalOverview();
+		showSubmitData();
 		
 		this.primaryStage.setOnCloseRequest( new EventHandler<WindowEvent>()
 		{
@@ -67,7 +72,7 @@ public class MainApp extends Application {
 	}
 	
 	/**
-	 * 
+	 *  This pane will show all the players and their selections.
 	 */
 	public void showPersonalOverview() 
 	{
@@ -91,7 +96,8 @@ public class MainApp extends Application {
 	}
 	
 	/**
-	 * 
+	 * This pane will allow the user to select which environment for the game 
+	 * and the times it took to complete each point. 
 	 */
 	public void showEnvironmentOverview()
 	{
@@ -106,6 +112,29 @@ public class MainApp extends Application {
 			mcontroller = loader.getController(); 
 			mcontroller.setMainApp(this);
 		}		
+		catch ( IOException ex )
+		{
+			ex.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Submits the data to a file. 
+	 */
+	public void showSubmitData()
+	{
+		try
+		{
+			FXMLLoader loader = new FXMLLoader(); 
+			loader.setLocation(MainApp.class.getResource("view/SubmitData.fxml"));
+			AnchorPane submitData = (AnchorPane) loader.load(); 
+			
+			rootLayout.setBottom(submitData);
+			
+			scontroller = loader.getController(); 
+			System.out.println(scontroller);
+	        scontroller.setMainApp(this);
+		}
 		catch ( IOException ex )
 		{
 			ex.printStackTrace();
@@ -133,9 +162,23 @@ public class MainApp extends Application {
 	
 	public void closeFile()
 	{
-		mcontroller.closeForm();
+		scontroller.closeForm();
 	}
-
+	
+	public OMap getMap()
+	{
+		return mcontroller.getMap();
+	}
+	
+	public ArrayList<Label> getTimerList()
+	{
+		return mcontroller.getTimerList();
+	}
+	
+	public void clear()
+	{
+		mcontroller.clearForm();
+	}
 	/**
 	 * 
 	 * @param args

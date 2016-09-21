@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 
 /**
  * Outputs the CVS information to a file OverwatchGames.csv. 
@@ -16,26 +17,18 @@ import javafx.scene.control.Label;
 public class CSVResultOutput implements ResultOutput {
 
 	PrintWriter pw = null;
+	File dir = null;
 	
 	/**
 	 * Opens the file
 	 */
 	@Override
-	public void openFile() {
+	public void openFile( String file_name) {
 		FileWriter file;
 		try 
 		{
-			File dir = new File("C:\\Users\\Spazkat\\RPG");  //Create Directory
-            if(!dir.exists()){
-                if (dir.mkdir()){
-                    //Successfully created Directory
-                }
-                else{
-                    throw new IOException("Failed to create directory");
-                }
-            }
-            file = new FileWriter(new File(dir, "OverwatchGames.csv"), true); //Create file at Directory
-            pw = new PrintWriter(file, true);                                 //Write file
+            file = new FileWriter( file_name, true); //Create file at Directory
+            pw = new PrintWriter( file, true );                                 //Write file
 		} 
 		catch (IOException e) 
 		{
